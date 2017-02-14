@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;urlShortner&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../awesomeProject" />
+      <root url="file://$PROJECT_DIR$/../restful" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../awesomeProject1" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../awesomeProject" />
+      <root url="file://$PROJECT_DIR$/../restful" />
+      <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../github.com" />
+      <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../awesomeProject1" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
