@@ -13,29 +13,29 @@ const genesisNumber = 6
 func CreateEndpoint(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	if err := model.MatchUrl(r.Form.Get("url")); err != nil {
-		log.Println("sono qui")
-		log.Fatal(err)
+		tmpl := template.Must(template.ParseFiles("templates/failed.html"))
+		tmpl.ExecuteTemplate(w, "failed.html", err.Error())
+	} else {
+		ShortUrl := model.GenerateShortUrl(r.Form.Get("url"), genesisNumber)
+		log.Println(ShortUrl)
+		tmpl := template.Must(template.ParseFiles("templates/success.html"))
+		tmpl.ExecuteTemplate(w, "success.html", string(ShortUrl))
 	}
-	ShortUrl := model.GenerateShortUrl(r.Form.Get("url"), genesisNumber)
-	log.Println(ShortUrl)
-	tmpl := template.Must(template.ParseFiles("templates/success.html"))
-	tmpl.ExecuteTemplate(w, "success.html", string(ShortUrl)) // qui
-	//http.Redirect(w,r, "/success", 201)
 
 }
 
 func RootEndpoint(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	var longUrl string
+	var err error
+	if r.URL.Path != "/" && r.URL.Path != "/create" {
 		reqId := strings.Replace(r.URL.Path, "/", "", -1)
-		if res, err := model.GetLongUrl(reqId); err != nil {
-			log.Fatal(err)
+		if longUrl, err = model.GetLongUrl(reqId); err != nil {
+			tmpl := template.Must(template.ParseFiles("templates/failed.html"))
+			tmpl.ExecuteTemplate(w, "failed.html", err.Error())
 		} else {
-			log.Println("redirect")
-			http.Get(res)
-			return
+			http.Redirect(w,r,longUrl,http.StatusMovedPermanently)
 		}
 	}
-
 }
 
 func main() {

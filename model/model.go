@@ -12,6 +12,8 @@ import (
 func MatchUrl(url string) error{
 	var rp = regexp.MustCompile(`https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`)
 	switch {
+	case url == "":
+		return errors.New("Empty URL")
 	case rp.MatchString(url):
 		return nil
 	default:
@@ -33,7 +35,7 @@ func GenerateShortUrl(longUrl string, number int) string {
 func GetLongUrl(id string) (string, error) {
 	for _, val := range structures.Database {
 		if val.ID == id {
-			return val.ShortUrl, nil
+			return val.LongUrl, nil
 		}
 	}
 	return "",errors.New("URL not found!")
