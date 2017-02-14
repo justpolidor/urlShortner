@@ -6,7 +6,7 @@ import (
 	"sync"
 
 )
-var database = make(map[string]MyUrl)
+var Database = make(map[string]MyUrl)
 
 type MyUrl struct {
 	ID string `json:"id,omitempty"`
