@@ -5,12 +5,13 @@ import (
 	"errors"
 	"urlShortner/structures"
 	"log"
+	"strings"
 )
 
 
 
 func MatchUrl(url string) error{
-	var rp = regexp.MustCompile(`https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`)
+	var rp = regexp.MustCompile(`[https?:\/\/]?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)`)
 	switch {
 	case url == "":
 		return errors.New("Empty URL")
@@ -24,6 +25,9 @@ func MatchUrl(url string) error{
 func GenerateShortUrl(longUrl string, number int) string {
 	var urlStruct structures.MyUrl
 	urlStruct.ID = structures.RandStringBytesMaskImpr(number)
+	if !strings.HasPrefix(longUrl, "http://") && !strings.HasPrefix(longUrl,"https://") {
+		longUrl = "http://" + longUrl
+	}
 	urlStruct.LongUrl = longUrl
 	urlStruct.ShortUrl = structures.Domain + urlStruct.ID
 
