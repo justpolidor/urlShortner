@@ -7,8 +7,8 @@ import (
 	"urlShortner/app/util"
 )
 
-const domain = "https://afternoon-scrubland-76540.herokuapp.com/"
-
+const domainRemote = "https://afternoon-scrubland-76540.herokuapp.com/"
+const domainLocal = "http://127.0.0.1/"
 var database = make(map[string]Url) //da togliere
 
 type Url struct {
@@ -24,7 +24,7 @@ func (u *Url) GenerateShortUrl(longUrl string, genesisNumber int) string {
 		longUrl = "http://" + longUrl
 	}
 	u.LongUrl = longUrl
-	u.ShortUrl = domain + u.ID
+	u.ShortUrl = domainLocal + u.ID
 
 	database[u.ID] = *u
 
@@ -52,4 +52,3 @@ func MatchUrl(url string) error{
 		return errors.New("Bad URL")
 	}
 }
-

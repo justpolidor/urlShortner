@@ -15,5 +15,4 @@ func Routes() *mux.Router {
 	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("templates/"))))
 
 	return router
-	//router.PathPrefix("/success").Handler(http.StripPrefix("/", http.FileServer(http.Dir("templates/success.html"))))
 }
