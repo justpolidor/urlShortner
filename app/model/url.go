@@ -7,7 +7,7 @@ import (
 	"urlShortner/app/util"
 )
 
-const domain = "http://127.0.0.1/"
+const domain = "https://afternoon-scrubland-76540.herokuapp.com/"
 
 var database = make(map[string]Url) //da togliere
 
