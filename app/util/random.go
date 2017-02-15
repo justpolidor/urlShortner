@@ -1,26 +1,18 @@
-package structures
+package util
 
 import (
-	"math/rand"
 	"time"
+	"math/rand"
 	"sync"
-
 )
-var Database = make(map[string]MyUrl)
-
-type MyUrl struct {
-	ID string `json:"id,omitempty"`
-	LongUrl string `json:"longurl,omitempty"`
-	ShortUrl string `json:"shortul,omitempty"`
-}
-
-const Domain = "http://127.0.0.1/"
-const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const (
 	letterIdxBits = 6                    // 6 bits to represent a letter index
 	letterIdxMask = 1<<letterIdxBits - 1 // All 1-bits, as many as letterIdxBits
 	letterIdxMax  = 63 / letterIdxBits   // # of letter indices fitting in 63 bits
 )
+
+const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var mutex sync.Mutex
 
 func RandStringBytesMaskImpr(n int) string {
 	rand.Seed(time.Now().UTC().UnixNano())
@@ -40,8 +32,6 @@ func RandStringBytesMaskImpr(n int) string {
 
 	return string(b)
 }
-
-var mutex sync.Mutex
 
 func int63() int64 {
 	mutex.Lock()
