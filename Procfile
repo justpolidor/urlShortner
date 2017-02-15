@@ -1,1 +1,0 @@
-web: urlShortner -port=$PORT
