@@ -5,6 +5,7 @@ import (
 	"log"
 	"runtime"
 	"urlShortner/app/route"
+	"os"
 )
 const genesisNumber = 6
 
@@ -15,6 +16,6 @@ func init() {
 func main() {
 
 	log.Println("Started...")
-	log.Fatal(http.ListenAndServe(":80", route.Routes()))
+	log.Fatal(http.ListenAndServe(os.Getenv("PORT"), route.Routes()))
 
 }
