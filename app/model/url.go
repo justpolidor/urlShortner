@@ -5,18 +5,20 @@ import (
 	"errors"
 	"regexp"
 	"urlShortner/app/util"
+	"time"
+	"log"
+	"fmt"
 )
 
 const domainRemote = "https://afternoon-scrubland-76540.herokuapp.com/"
 const domainLocal = "http://127.0.0.1/"
-var database = make(map[string]Url) //da togliere
+var client = NewClient()
 
 type Url struct {
-	ID string `json:"id,omitempty"`
-	LongUrl string `json:"longurl,omitempty"`
-	ShortUrl string `json:"shortul,omitempty"`
+	ID string
+	LongUrl string
+	ShortUrl string
 }
-
 
 func (u *Url) GenerateShortUrl(longUrl string, genesisNumber int) string {
 	u.ID = util.RandStringBytesMaskImpr(genesisNumber) //leggere dal json
@@ -26,17 +28,22 @@ func (u *Url) GenerateShortUrl(longUrl string, genesisNumber int) string {
 	u.LongUrl = longUrl
 	u.ShortUrl = domainLocal + u.ID
 
-	database[u.ID] = *u
+	err := client.Set(u.ID, longUrl, time.Hour).Err()
+	if err != nil {
+		log.Println(err)
+	}
 
 	return u.ShortUrl
 }
 
 func GetLongUrl(id string) (string,error) {
-	for _, val := range database {
-		if val.ID == id {
-			return val.LongUrl, nil
-		}
+	val, err := client.Get(id).Result()
+	if err != nil {
+		log.Println(err)
+	} else {
+		return val ,nil
 	}
+	fmt.Println(id, val)
 
 	return "", errors.New("URL not found!")
 }
