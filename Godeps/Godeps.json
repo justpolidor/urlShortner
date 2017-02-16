@@ -7,6 +7,36 @@
 			"ImportPath": "github.com/gorilla/mux",
 			"Comment": "v1.3.0",
 			"Rev": "392c28fe23e1c45ddba891b0320b3b5df220beea"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/consistenthash",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/hashtag",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/pool",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
+		},
+		{
+			"ImportPath": "gopkg.in/redis.v5/internal/proto",
+			"Comment": "v5.2.4",
+			"Rev": "2fe9c5cc0a8da9faeba3a45511a4ece8f7e37dc2"
 		}
 	]
 }
