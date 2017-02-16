@@ -26,7 +26,7 @@ func (u *Url) GenerateShortUrl(longUrl string, genesisNumber int) string {
 		longUrl = "http://" + longUrl
 	}
 	u.LongUrl = longUrl
-	u.ShortUrl = domainLocal + u.ID
+	u.ShortUrl = domainRemote + u.ID
 
 	err := client.Set(u.ID, longUrl, time.Hour).Err()
 	if err != nil {
