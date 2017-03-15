@@ -21,7 +21,7 @@ type Url struct {
 }
 
 func (u *Url) GenerateShortUrl(longUrl string, genesisNumber int) string {
-	u.ID = util.RandStringBytesMaskImpr(genesisNumber) //leggere dal json
+	u.ID = util.RandStringBytesMaskImprSrc(genesisNumber) //leggere dal json
 	if !strings.HasPrefix(longUrl, "http://") && !strings.HasPrefix(longUrl,"https://") {
 		longUrl = "http://" + longUrl
 	}

@@ -2,17 +2,33 @@
   <library name="GOPATH &lt;urlShortner&gt;">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../restful" />
+      <root url="file://$PROJECT_DIR$/../tutorial1" />
       <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../blog_5Pilastri" />
       <root url="file://$PROJECT_DIR$/../github.com" />
       <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../findDomainNames" />
+      <root url="file://$PROJECT_DIR$/../blog1" />
       <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../justinCurriculum" />
+      <root url="file://$PROJECT_DIR$/../hugoWebsite" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../prova" />
     </CLASSES>
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../restful" />
+      <root url="file://$PROJECT_DIR$/../tutorial1" />
       <root url="file://$PROJECT_DIR$/../gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../blog_5Pilastri" />
       <root url="file://$PROJECT_DIR$/../github.com" />
       <root url="file://$PROJECT_DIR$/../golang.org" />
+      <root url="file://$PROJECT_DIR$/../findDomainNames" />
+      <root url="file://$PROJECT_DIR$/../blog1" />
       <root url="file://$PROJECT_DIR$/../sourcegraph.com" />
+      <root url="file://$PROJECT_DIR$/../justinCurriculum" />
+      <root url="file://$PROJECT_DIR$/../hugoWebsite" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../prova" />
     </SOURCES>
     <excluded>
       <root url="file://$PROJECT_DIR$" />

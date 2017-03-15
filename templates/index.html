@@ -4,41 +4,138 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-
     <title>URL Shortner</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+        body {
+            background: #eee;
+            font: 12px Lucida sans, Arial, Helvetica, sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        a {
+            color: #2A679F;
+        }
+        /*========*/
+
+        .form-wrapper {
+            background-color: #f6f6f6;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8));
+            background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+            border-color: #dedede #bababa #aaa #bababa;
+            border-style: solid;
+            border-width: 1px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            margin: 100px auto;
+            overflow: hidden;
+            padding: 8px;
+            width: 450px;
+        }
+
+        .form-wrapper .search {
+            border: 1px solid #CCC;
+            -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #999;
+            float: left;
+            font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+            height: 20px;
+            padding: 20px;
+            width: 320px;
+        }
+
+        .form-wrapper .search:focus {
+            border-color: #aaa;
+            -webkit-box-shadow: 0 1px 1px #bbb inset;
+            -moz-box-shadow: 0 1px 1px #bbb inset;
+            box-shadow: 0 1px 1px #bbb inset;
+            outline: 0;
+        }
+
+        .form-wrapper .search:-moz-placeholder,
+        .form-wrapper .search:-ms-input-placeholder,
+        .form-wrapper .search::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #submit {
+            background-color: #0483a0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+            background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: linear-gradient(top, #31b2c3, #0483a0);
+            border: 1px solid #00748f;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            color: #fafafa;
+            cursor: pointer;
+            height: 42px;
+            float: right;
+            font: 15px Arial, Helvetica;
+            padding: 0;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+            width: 100px;
+        }
+
+        .form-wrapper #submit:hover,
+        .form-wrapper #submit:focus {
+            background-color: #31b2c3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+            background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: linear-gradient(top, #0483a0, #31b2c3);
+        }
+
+        .form-wrapper #submit:active {
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            outline: 0;
+        }
+
+        .form-wrapper #submit::-moz-focus-inner {
+            border: 0;
+        }
+    </style>
 </head>
-<body style="text-align: center; background-color: #f2f2f2">
-<h1 class="display-1" style="margin-top: 5%">URL Shortner</h1>
-
-<div class="container-fluid " >
-
-    <div class="row">
-
-        <div class="col-lg-5 col-md-5 col-xs-5 offset-4" style="margin-top: 10%; margin-bottom: 20%">
-            <form class="form-inline" action="/create" method="POST" style="width: 100%">
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <div class="input-group-addon">Your URL</div>
-                    <input type="text" class="form-control" id="inlineFormInputGroup" name="url" required="required">
-                </div>
-                <button type="submit" class="btn btn-primary">Go Short!</button>
-            </form>
-        </div>
-
-    </div>
-
-</div>
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<body>
+    <h1 class="display-1" style="margin-top: 5%">URL Shortner</h1>
+  <form class="form-wrapper" action="/create" method="POST">
+    <input type="text" class="search" id="inlineFormInputGroup" placeholder="url">
+    <input type="submit" value="go" id="submit">
+</form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="hosted_button_id" value="DTXFAF9PM8B3C">
     <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
     <img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 </form>
-
-
+  </div>
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
